@@ -1,5 +1,5 @@
 # Farmcraft
-![](https://github.com/actions/Wtoll/farmcraft/workflows/.github/workflows/build.yml/badge.svg)
+![](https://github.com/Wtoll/farmcraft/workflows/.github/workflows/build.yml/badge.svg)
 
 Implements new plants, items, food, ways of farming and more to the minecraft experience.
 
