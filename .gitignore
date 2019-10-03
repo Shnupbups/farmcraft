@@ -1,0 +1,30 @@
+# Compiled
+/build
+/bin
+/.gradle
+/minecraft
+/out
+/run
+/classes
+/old
+
+# IDE
+.classpath
+.project
+.metadata
+.settings
+*.launch
+*.iml
+.idea
+*.ipr
+*.iws
+
+private.properties
+
+# Filesystem Gui Files
+Thumbs.db
+.DS_Store
+
+secret\.properties
+
+local\.properties

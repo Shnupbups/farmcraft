@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "farmcraft:peanut"
+    },
+    {
+      "item": "farmcraft:glass_jar"
+    }
+  ],
+  "result": {
+    "item": "farmcraft:peanut_butter",
+    "count": 1
+  }
+}

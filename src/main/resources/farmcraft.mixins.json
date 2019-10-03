@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.mb11.farmcraft.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "PlayerEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

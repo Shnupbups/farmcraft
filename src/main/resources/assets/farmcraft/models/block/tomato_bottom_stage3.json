@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "farmcraft:block/tomato_bottom_stage3"
+    }
+}

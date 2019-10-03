@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "farmcraft:oat"
+    }
+  ],
+  "result": {
+    "item": "farmcraft:oat_flour",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H H",
+    "W W"
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "W": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "farmcraft:bee_boots",
+    "count": 1
+  }
+}

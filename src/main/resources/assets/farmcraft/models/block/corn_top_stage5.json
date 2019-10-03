@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "farmcraft:block/corn_top_stage5"
+    }
+}

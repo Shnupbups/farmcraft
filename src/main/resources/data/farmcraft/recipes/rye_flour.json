@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "farmcraft:rye"
+    }
+  ],
+  "result": {
+    "item": "farmcraft:rye_flour",
+    "count": 1
+  }
+}
