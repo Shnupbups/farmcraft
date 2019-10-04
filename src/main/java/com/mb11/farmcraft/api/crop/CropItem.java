@@ -16,7 +16,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Property;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -112,7 +112,7 @@ public class CropItem extends BlockItem {
     }
 
     private static <T extends Comparable<T>> BlockState with(BlockState blockState_1, Property<T> property_1, String string_1) {
-        return (BlockState)property_1.getValue(string_1).map((comparable_1) -> {
+        return (BlockState)property_1.parse(string_1).map((comparable_1) -> {
             return (BlockState)blockState_1.with(property_1, comparable_1);
         }).orElse(blockState_1);
     }
@@ -122,14 +122,14 @@ public class CropItem extends BlockItem {
         CompoundTag compoundTag_1 = itemStack_1.getTag();
         if (compoundTag_1 != null) {
             CompoundTag compoundTag_2 = compoundTag_1.getCompound("BlockStateTag");
-            StateFactory<Block, BlockState> stateFactory_1 = blockState_1.getBlock().getStateFactory();
+            StateManager<Block, BlockState> stateFactory_1 = blockState_1.getBlock().getStateFactory();
             Iterator var9 = compoundTag_2.getKeys().iterator();
 
             while(var9.hasNext()) {
                 String string_1 = (String)var9.next();
                 Property<?> property_1 = stateFactory_1.getProperty(string_1);
                 if (property_1 != null) {
-                    String string_2 = compoundTag_2.getTag(string_1).asString();
+                    String string_2 = compoundTag_2.get(string_1).asString();
                     blockState_2 = with(blockState_2, property_1, string_2);
                 }
             }

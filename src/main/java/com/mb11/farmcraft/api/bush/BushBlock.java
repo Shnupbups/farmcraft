@@ -17,7 +17,7 @@ import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
@@ -59,8 +59,8 @@ public class BushBlock extends PlantBlock implements Fertilizable {
         }
     }
 
-    public void onScheduledTick(BlockState blockState_1, ServerWorld serverWorld_1, BlockPos blockPos_1, Random random_1) {
-        super.onScheduledTick(blockState_1, serverWorld_1, blockPos_1, random_1);
+    public void scheduledTick(BlockState blockState_1, ServerWorld serverWorld_1, BlockPos blockPos_1, Random random_1) {
+        super.scheduledTick(blockState_1, serverWorld_1, blockPos_1, random_1);
         int int_1 = (Integer)blockState_1.get(AGE);
         if (int_1 < 3 && random_1.nextInt(5) == 0 && serverWorld_1.getBaseLightLevel(blockPos_1.up(), 0) >= 9) {
             serverWorld_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(AGE, int_1 + 1), 2);
@@ -82,7 +82,7 @@ public class BushBlock extends PlantBlock implements Fertilizable {
         }
     }
 
-    public boolean activate(BlockState blockState_1, World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1, Hand hand_1, BlockHitResult blockHitResult_1) {
+    public boolean onUse(BlockState blockState_1, World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1, Hand hand_1, BlockHitResult blockHitResult_1) {
         int int_1 = (Integer)blockState_1.get(AGE);
         boolean boolean_1 = int_1 == 3;
         if (!boolean_1 && playerEntity_1.getStackInHand(hand_1).getItem() == Items.BONE_MEAL) {
@@ -94,11 +94,11 @@ public class BushBlock extends PlantBlock implements Fertilizable {
             world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(AGE, 1), 2);
             return true;
         } else {
-            return super.activate(blockState_1, world_1, blockPos_1, playerEntity_1, hand_1, blockHitResult_1);
+            return super.onUse(blockState_1, world_1, blockPos_1, playerEntity_1, hand_1, blockHitResult_1);
         }
     }
 
-    protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> stateFactory$Builder_1) {
         stateFactory$Builder_1.add(new Property[]{AGE});
     }
 

@@ -106,7 +106,7 @@ public class CropBlockEntity extends BlockEntity implements Tickable {
             CropBlock block = (CropBlock) world.getBlockState(this.getPos()).getBlock();
             if (block.isTwoTall()) {
                 BlockState state = world.getBlockState(this.getPos());
-                BlockPos other = state.get(block.HALF) == DoubleBlockHalf.LOWER ? this.getPos().up() : this.getPos().down();
+                BlockPos other = state.get(block.HALF) == DoubleBlockHalf.LOWER ? this.getPos().up() : this.getPos().down(1);
                 if (world.getBlockState(other).get(block.getAgeProperty()) > state.get(block.getAgeProperty())) {
                     world.setBlockState(this.getPos(), world.getBlockState(other).with(block.HALF, state.get(block.HALF)));
                 } else {

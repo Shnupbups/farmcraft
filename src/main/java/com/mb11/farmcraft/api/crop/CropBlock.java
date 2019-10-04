@@ -22,7 +22,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
@@ -40,14 +40,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.loot.LootSupplier;
-import net.minecraft.world.loot.LootTables;
-import net.minecraft.world.loot.context.LootContext;
-import net.minecraft.world.loot.context.LootContextParameters;
-import net.minecraft.world.loot.context.LootContextTypes;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class CropBlock extends net.minecraft.block.CropBlock implements BlockEntityProvider {
@@ -123,7 +116,7 @@ public class CropBlock extends net.minecraft.block.CropBlock implements BlockEnt
             if (blockState_1.get(HALF) != DoubleBlockHalf.UPPER) {
                 return super.canPlaceAt(blockState_1, class_4538_1, blockPos_1);
             } else {
-                BlockState blockState_2 = class_4538_1.getBlockState(blockPos_1.down());
+                BlockState blockState_2 = class_4538_1.getBlockState(blockPos_1.down(1));
                 return blockState_2.getBlock() == this && blockState_2.get(HALF) == DoubleBlockHalf.LOWER;
             }
         } else {
@@ -141,7 +134,7 @@ public class CropBlock extends net.minecraft.block.CropBlock implements BlockEnt
     public void onBreak(World world_1, BlockPos blockPos_1, BlockState blockState_1, PlayerEntity playerEntity_1) {
         if (this.twotall) {
             DoubleBlockHalf doubleBlockHalf_1 = (DoubleBlockHalf) blockState_1.get(HALF);
-            BlockPos blockPos_2 = doubleBlockHalf_1 == DoubleBlockHalf.LOWER ? blockPos_1.up() : blockPos_1.down();
+            BlockPos blockPos_2 = doubleBlockHalf_1 == DoubleBlockHalf.LOWER ? blockPos_1.up(1) : blockPos_1.down(1);
             BlockState blockState_2 = world_1.getBlockState(blockPos_2);
             if (blockState_2.getBlock() == this && blockState_2.get(HALF) != doubleBlockHalf_1) {
                 world_1.setBlockState(blockPos_2, Blocks.AIR.getDefaultState(), 35);
@@ -155,7 +148,7 @@ public class CropBlock extends net.minecraft.block.CropBlock implements BlockEnt
         super.onBreak(world_1, blockPos_1, blockState_1, playerEntity_1);
     }
 
-    protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> stateFactory$Builder_1) {
         stateFactory$Builder_1.add(new Property[]{HALF});
         super.appendProperties(stateFactory$Builder_1);
     }
@@ -198,7 +191,7 @@ public class CropBlock extends net.minecraft.block.CropBlock implements BlockEnt
     }
 
     @Override
-    public boolean activate(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult blockHitResult) {
+    public boolean onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult blockHitResult) {
         if (state.get(AGE) == 7) {
             player.addExhaustion(0.005F);
             if (world instanceof ServerWorld) {
@@ -281,11 +274,11 @@ public class CropBlock extends net.minecraft.block.CropBlock implements BlockEnt
 
 
     @Override
-    public void onScheduledTick(BlockState blockState_1, ServerWorld serverWorld_1, BlockPos blockPos_1, Random random_1) {
+    public void scheduledTick(BlockState blockState_1, ServerWorld serverWorld_1, BlockPos blockPos_1, Random random_1) {
         if (blockState_1.get(HALF) == DoubleBlockHalf.UPPER && this.twotall) {
             return;
         }
-        super.onScheduledTick(blockState_1, serverWorld_1, blockPos_1, random_1);
+        super.scheduledTick(blockState_1, serverWorld_1, blockPos_1, random_1);
         if (serverWorld_1.getBaseLightLevel(blockPos_1, 0) >= 9) {
             int int_1 = this.getAge(blockState_1);
             if (int_1 < this.getMaxAge()) {
