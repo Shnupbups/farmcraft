@@ -1,5 +1,6 @@
 package com.mb11.farmcraft;
 
+import com.mb11.farmcraft.api.bush.Bush;
 import com.mb11.farmcraft.api.crop.Crop;
 import com.mb11.farmcraft.api.factory.CropBoundingBoxFactory;
 import net.minecraft.item.FoodComponent;
@@ -14,6 +15,7 @@ public class Plants {
                     .hunger(1)
                     .saturationModifier(0.3f)
                     .build())
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
             .build();
 
@@ -48,6 +50,7 @@ public class Plants {
                     .hunger(1)
                     .saturationModifier(0.3f)
                     .build())
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 4, 5, 7, 8, 9, 10} ))
             .build();
 
@@ -58,7 +61,9 @@ public class Plants {
                     .build())
             .setTwoTall(true)
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .setPartialHarvest(true)
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
 
@@ -82,7 +87,9 @@ public class Plants {
                     .build())
             .setTwoTall(true)
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .setPartialHarvest(true)
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
 
@@ -90,8 +97,10 @@ public class Plants {
 
 
     public static final Crop oat = new Crop(new Identifier(MODID, "oat"))
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
     /*
     public static final Crop jute = new Crop(new Identifier(MODID, "jute"))
@@ -111,20 +120,33 @@ public class Plants {
     */
 
     public static final Crop rice = new Crop(new Identifier(MODID, "rice"))
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
 
     public static final Crop rye = new Crop(new Identifier(MODID, "rye"))
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
 
     public static final Crop barley = new Crop(new Identifier(MODID, "barley"))
+            .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
 
+    public static final Bush blueberry = new Bush(new Identifier(MODID, "blueberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
 
 
     public static void register() {
@@ -139,6 +161,8 @@ public class Plants {
         barley.register();
         oat.register();
         rice.register();
+
+        blueberry.register();
     }
 
 

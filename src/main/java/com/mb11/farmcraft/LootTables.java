@@ -1,7 +1,9 @@
 package com.mb11.farmcraft;
 
-import com.mb11.farmcraft.Plants;
+import net.fabricmc.fabric.api.loot.v1.FabricLootPool;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.FabricLootSupplier;
+import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.loot.ConstantLootTableRange;
@@ -26,6 +28,48 @@ public class LootTables {
                         .withEntry(ItemEntry.builder(Plants.rye.getSeed()))
                         .withEntry(ItemEntry.builder(Plants.oat.getSeed()))
                         .withCondition(RandomChanceLootCondition.builder(0.125f))
+                );
+            } else if (new Identifier("minecraft", "chests/simple_dungeon").equals(id)) {
+                supplier.withPool(FabricLootPoolBuilder.builder()
+                        .withRolls(ConstantLootTableRange.create(3))
+                        .withEntry(ItemEntry.builder(Plants.bell_pepper.getSeed()))
+                        .withEntry(ItemEntry.builder(Plants.tomato.getSeed()))
+                        .withCondition(RandomChanceLootCondition.builder(0.25f))
+                );
+            } else if (new Identifier("minecraft", "chests/abandoned_mineshaft").equals(id)) {
+                supplier.withPool(FabricLootPoolBuilder.builder()
+                        .withRolls(ConstantLootTableRange.create(3))
+                        .withEntry(ItemEntry.builder(Plants.bell_pepper.getSeed()))
+                        .withEntry(ItemEntry.builder(Plants.tomato.getSeed()))
+                        .withCondition(RandomChanceLootCondition.builder(0.25f))
+                );
+            } else if (new Identifier("minecraft", "chests/pillager_outpost").equals(id)) {
+                supplier.withPool(FabricLootPoolBuilder.builder()
+                        .withRolls(ConstantLootTableRange.create(3))
+                        .withEntry(ItemEntry.builder(Plants.bell_pepper.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.tomato.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.peanut.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.onion.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.rice.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.blueberry.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.barley.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.oat.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.rye.getItem()))
+                        .withCondition(RandomChanceLootCondition.builder(0.25f))
+                );
+            } else if (new Identifier("minecraft", "chests/shipwreck_supply").equals(id)) {
+                supplier.withPool(FabricLootPoolBuilder.builder()
+                        .withRolls(ConstantLootTableRange.create(3))
+                        .withEntry(ItemEntry.builder(Plants.bell_pepper.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.tomato.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.peanut.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.onion.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.rice.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.blueberry.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.barley.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.oat.getItem()))
+                        .withEntry(ItemEntry.builder(Plants.rye.getItem()))
+                        .withCondition(RandomChanceLootCondition.builder(0.25f))
                 );
             }
         });

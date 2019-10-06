@@ -20,15 +20,21 @@ public class Bush {
     private BushBlock block;
     private FoodComponent food;
 
-    private boolean seperateseed = false;
+    private ItemGroup group;
 
-    public Bush(String name, FoodComponent food) {
-        this.id = new Identifier(MODID, name);
+    public Bush(Identifier id) {
+        this.id = id;
+        this.food = null;
+    }
+
+    public Bush setFood(FoodComponent food) {
         this.food = food;
+        return this;
+    }
 
-        this.block = new BushBlock(FabricBlockSettings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).build(), this.getSeedId());
-        this.item = new BushItem(this.block, new Item.Settings().group(ItemGroup.FOOD).food(this.food));
-
+    public Bush setItemGroup(ItemGroup group) {
+        this.group = group;
+        return this;
     }
 
     public FoodComponent getFood() {
@@ -50,9 +56,13 @@ public class Bush {
 
     public Identifier getSeedId() {
         Identifier seedid = this.id;
-        if (this.seperateseed) {
-            seedid = new Identifier(this.id.getNamespace(), this.id.getPath() + "_seeds");
-        }
+        seedid = new Identifier(this.id.getNamespace(), this.id.getPath() + "_seeds");
         return seedid;
+    }
+
+    public Bush build() {
+        this.block = new BushBlock(FabricBlockSettings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).build(), this.getSeedId());
+        this.item = new BushItem(this.block, new Item.Settings().group(this.group).food(this.food));
+        return this;
     }
 }

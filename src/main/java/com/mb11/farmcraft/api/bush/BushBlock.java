@@ -43,7 +43,7 @@ public class BushBlock extends PlantBlock implements Fertilizable {
     public BushBlock(Settings settings, Identifier seedid) {
         super(settings);
         this.seedid = seedid;
-        this.setDefaultState((BlockState)((BlockState)this.stateFactory.getDefaultState()).with(AGE, 0));
+        this.setDefaultState((this.stateFactory.getDefaultState()).with(AGE, 0));
     }
 
     @Environment(EnvType.CLIENT)
@@ -52,24 +52,24 @@ public class BushBlock extends PlantBlock implements Fertilizable {
     }
 
     public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext entityContext_1) {
-        if ((Integer)blockState_1.get(AGE) == 0) {
+        if (blockState_1.get(AGE) == 0) {
             return SMALL_SHAPE;
         } else {
-            return (Integer)blockState_1.get(AGE) < 3 ? LARGE_SHAPE : super.getOutlineShape(blockState_1, blockView_1, blockPos_1, entityContext_1);
+            return blockState_1.get(AGE) < 3 ? LARGE_SHAPE : super.getOutlineShape(blockState_1, blockView_1, blockPos_1, entityContext_1);
         }
     }
 
     public void scheduledTick(BlockState blockState_1, ServerWorld serverWorld_1, BlockPos blockPos_1, Random random_1) {
         super.scheduledTick(blockState_1, serverWorld_1, blockPos_1, random_1);
-        int int_1 = (Integer)blockState_1.get(AGE);
+        int int_1 = blockState_1.get(AGE);
         if (int_1 < 3 && random_1.nextInt(5) == 0 && serverWorld_1.getBaseLightLevel(blockPos_1.up(), 0) >= 9) {
-            serverWorld_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(AGE, int_1 + 1), 2);
+            serverWorld_1.setBlockState(blockPos_1, blockState_1.with(AGE, int_1 + 1), 2);
         }
 
     }
 
     public void onEntityCollision(BlockState blockState_1, World world_1, BlockPos blockPos_1, Entity entity_1) {
-        if (entity_1 instanceof LivingEntity && entity_1.getType() != EntityType.FOX && entity_1.getType() != EntityType.BEE) {
+        if (entity_1 instanceof LivingEntity && entity_1.getType() != EntityType.FOX && entity_1.getType() != EntityType.BEE && !entity_1.isSneaking()) {
             entity_1.slowMovement(blockState_1, new Vec3d(0.800000011920929D, 0.75D, 0.800000011920929D));
             if (!world_1.isClient && (Integer)blockState_1.get(AGE) > 0 && (entity_1.prevRenderX != entity_1.x || entity_1.prevRenderZ != entity_1.z)) {
                 double double_1 = Math.abs(entity_1.x - entity_1.prevRenderX);
