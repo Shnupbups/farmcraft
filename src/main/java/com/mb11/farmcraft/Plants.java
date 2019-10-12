@@ -4,6 +4,7 @@ import com.mb11.farmcraft.api.bush.Bush;
 import com.mb11.farmcraft.api.crop.Crop;
 import com.mb11.farmcraft.api.factory.CropBoundingBoxFactory;
 import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 
 import static com.mb11.farmcraft.Farmcraft.MODID;
@@ -16,7 +17,7 @@ public class Plants {
                     .saturationModifier(0.3f)
                     .build())
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
             .build();
 
     /*
@@ -51,7 +52,7 @@ public class Plants {
                     .saturationModifier(0.3f)
                     .build())
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 4, 5, 7, 8, 9, 10} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 2, 4, 5, 7, 8, 9, 10} ))
             .build();
 
     public static final Crop bell_pepper = new Crop(new Identifier(MODID, "bell_pepper"))
@@ -64,7 +65,7 @@ public class Plants {
             .setSeedGroup(Farmcraft.GROUP)
             .setPartialHarvest(true)
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
 
     /*
@@ -90,7 +91,7 @@ public class Plants {
             .setSeedGroup(Farmcraft.GROUP)
             .setPartialHarvest(true)
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
 
 
@@ -98,7 +99,7 @@ public class Plants {
 
     public static final Crop oat = new Crop(new Identifier(MODID, "oat"))
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
             .setSeedGroup(Farmcraft.GROUP)
             .build();
@@ -121,21 +122,21 @@ public class Plants {
 
     public static final Crop rice = new Crop(new Identifier(MODID, "rice"))
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
             .setSeedGroup(Farmcraft.GROUP)
             .build();
 
     public static final Crop rye = new Crop(new Identifier(MODID, "rye"))
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
             .setSeedGroup(Farmcraft.GROUP)
             .build();
 
     public static final Crop barley = new Crop(new Identifier(MODID, "barley"))
             .setItemGroup(Farmcraft.GROUP)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
             .setSeedGroup(Farmcraft.GROUP)
             .build();

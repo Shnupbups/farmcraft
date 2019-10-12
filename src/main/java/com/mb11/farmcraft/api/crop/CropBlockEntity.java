@@ -83,6 +83,7 @@ public class CropBlockEntity extends BlockEntity implements Tickable {
         return tag;
     }
 
+    // TODO: Rewrite
     public void tick() {
         world = this.getWorld();
 
@@ -106,11 +107,13 @@ public class CropBlockEntity extends BlockEntity implements Tickable {
             CropBlock block = (CropBlock) world.getBlockState(this.getPos()).getBlock();
             if (block.isTwoTall()) {
                 BlockState state = world.getBlockState(this.getPos());
-                BlockPos other = state.get(block.HALF) == DoubleBlockHalf.LOWER ? this.getPos().up() : this.getPos().down(1);
-                if (world.getBlockState(other).get(block.getAgeProperty()) > state.get(block.getAgeProperty())) {
-                    world.setBlockState(this.getPos(), world.getBlockState(other).with(block.HALF, state.get(block.HALF)));
-                } else {
-                    world.setBlockState(other, world.getBlockState(this.getPos()).with(block.HALF, world.getBlockState(other).get(block.HALF)));
+                BlockPos other = state.get(block.getBlockHalfProperty()) == DoubleBlockHalf.LOWER ? this.getPos().up() : this.getPos().down(1);
+                if (world.getBlockState(other).getBlock() instanceof CropBlock) {
+                    if (world.getBlockState(other).get(block.getAgeProperty()) > state.get(block.getAgeProperty())) {
+                        world.setBlockState(this.getPos(), world.getBlockState(other).with(block.getBlockHalfProperty(), state.get(block.getBlockHalfProperty())));
+                    } else {
+                        world.setBlockState(other, world.getBlockState(this.getPos()).with(block.getBlockHalfProperty(), world.getBlockState(other).get(block.getBlockHalfProperty())));
+                    }
                 }
             }
         }

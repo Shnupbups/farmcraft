@@ -17,24 +17,24 @@ import java.util.Collection;
 import java.util.List;
 
 public class Events {
-
     public static void register() {
         PlayerTickCallback.EVENT.register((player) -> {
             player.inventory.armor.forEach(item -> {
-                if (!((ArmorItem) item.getItem()).getMaterial().equals(CustomArmorMaterials.BEESUIT)) {
-                    return;
-                } else {
-                    player.getEntityWorld().getEntities(player, new Box(player.getBlockPos().add(16, 16, 16), player.getBlockPos().add(-16, -16, -16))).forEach(entity -> {
-                        if (entity instanceof BeeEntity) {
-                            if (((BeeEntity) entity).getAttacker() == player) {
-                                ((BeeEntity) entity).setAnger(0);
+                if (item.getItem() instanceof ArmorItem) {
+                    if (!((ArmorItem) item.getItem()).getMaterial().equals(CustomArmorMaterials.BEESUIT)) {
+                        return;
+                    } else {
+                        player.getEntityWorld().getEntities(player, new Box(player.getBlockPos().add(16, 16, 16), player.getBlockPos().add(-16, -16, -16))).forEach(entity -> {
+                            if (entity instanceof BeeEntity) {
+                                if (((BeeEntity) entity).getAttacker() == player) {
+                                    ((BeeEntity) entity).setAnger(0);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
             });
             return ActionResult.PASS;
         });
-
     }
 }

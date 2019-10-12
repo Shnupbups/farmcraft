@@ -143,40 +143,17 @@ public class CropItem extends BlockItem {
         return blockState_2;
     }
 
-
-    /*// TODO: Change implementation so it does getDefaultState
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int num, boolean bool) {
-        CompoundTag genes;
-        if (stack.getSubTag("Genes") == null) {
-            genes = new CompoundTag();
-            genes.putInt("yield", 1);
-            genes.putInt("growth", 1);
-        } else {
-            genes = stack.getSubTag("Genes");
-            if (genes.getInt("yield") < 1) {
-                genes.putInt("yield", 1);
-            }
-            if (genes.getInt("growth") < 1) {
-                genes.putInt("growth", 1);
-            }
-        }
-        stack.putSubTag("Genes", genes);
-    }*/
-
-
     // TODO: Change this to work with a property registry
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+        if (stack.getSubTag("Genes") == null) {
+            return;
+        }
+        CompoundTag genes = stack.getSubTag("Genes");
+        tooltip.add(new LiteralText("[Shift]"));
         if (Screen.hasShiftDown()) {
-            if (stack.getSubTag("Genes") == null) {
-                return;
-            }
-            CompoundTag genes = stack.getSubTag("Genes");
-            if (genes != null) {
-                tooltip.add(new LiteralText("Yield: " + genes.getInt("yield")));
-                tooltip.add(new LiteralText("Growth: " + genes.getInt("growth")));
-            }
+            tooltip.add(new LiteralText("  Yield: " + genes.getInt("yield")));
+            tooltip.add(new LiteralText("  Growth: " + genes.getInt("growth")));
         }
     }
 
