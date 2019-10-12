@@ -141,13 +141,13 @@ public class Plants {
             .setSeedGroup(Farmcraft.GROUP)
             .build();
 
-    public static final Bush blueberry = new Bush(new Identifier(MODID, "blueberry"))
+    /*public static final Bush blueberry = new Bush(new Identifier(MODID, "blueberry"))
             .setFood((new FoodComponent.Builder())
                     .hunger(3)
                     .saturationModifier(0.6f)
                     .build())
             .setItemGroup(Farmcraft.GROUP)
-            .build();
+            .build();*/
 
 
     public static void register() {
@@ -163,7 +163,7 @@ public class Plants {
         oat.register();
         rice.register();
 
-        blueberry.register();
+        //blueberry.register();
     }
 
 
