@@ -24,6 +24,7 @@ public class Farmcraft implements ModInitializer {
     public void onInitialize() {
         Plants.register();
         Items.register();
+        Blocks.init();
         LootTables.register();
         Events.register();
 

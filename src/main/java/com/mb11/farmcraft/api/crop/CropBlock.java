@@ -311,7 +311,7 @@ public class CropBlock extends net.minecraft.block.CropBlock implements BlockEnt
     public void register(Identifier id) {
         Registry.register(Registry.BLOCK, id, this);
         this.entity = Registry.register(Registry.BLOCK_ENTITY, id, BlockEntityType.Builder.create( () -> new CropBlockEntity(id), this).build(null));
-        BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.method_23583());
+        BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.method_23581());
     }
 
     @Override

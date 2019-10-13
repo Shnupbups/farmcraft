@@ -83,7 +83,6 @@ public class CropBlockEntity extends BlockEntity implements Tickable {
         return tag;
     }
 
-    // TODO: Rewrite
     public void tick() {
         world = this.getWorld();
 

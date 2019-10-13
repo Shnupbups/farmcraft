@@ -1,0 +1,6 @@
+{
+    "parent": "farmcraft:block/leaf_layer",
+    "textures": {
+        "all": "block/oak_leaves"
+    }
+}

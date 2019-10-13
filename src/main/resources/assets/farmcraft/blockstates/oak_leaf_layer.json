@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "farmcraft:block/oak_leaf_layer" },
+            { "model": "farmcraft:block/oak_leaf_layer", "y": 90 },
+            { "model": "farmcraft:block/oak_leaf_layer", "y": 180 },
+            { "model": "farmcraft:block/oak_leaf_layer", "y": 270 }
+        ]
+    }
+}

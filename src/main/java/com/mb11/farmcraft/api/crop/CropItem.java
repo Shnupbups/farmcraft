@@ -143,7 +143,6 @@ public class CropItem extends BlockItem {
         return blockState_2;
     }
 
-    // TODO: Change this to work with a property registry
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getSubTag("Genes") == null) {

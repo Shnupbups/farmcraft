@@ -2,10 +2,12 @@ package com.mb11.farmcraft.api.bush;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.PlantBlock;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.EntityType;
@@ -113,6 +115,10 @@ public class BushBlock extends PlantBlock implements Fertilizable {
     public void grow(ServerWorld serverWorld_1, Random random_1, BlockPos blockPos_1, BlockState blockState_1) {
         int int_1 = Math.min(3, (Integer)blockState_1.get(AGE) + 1);
         serverWorld_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(AGE, int_1), 2);
+    }
+
+    public void register() {
+        BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.method_23581());
     }
 
     static {

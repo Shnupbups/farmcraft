@@ -20,13 +20,13 @@ public class Plants {
             .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
             .build();
 
-    /*
     public static final Crop garlic = new Crop(new Identifier(MODID, "garlic"))
             .setFood((new FoodComponent.Builder())
                     .hunger(1)
                     .saturationModifier(0.3f)
                     .build())
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
             .build();
 
     public static final Crop ginger = new Crop(new Identifier(MODID, "ginger"))
@@ -34,7 +34,8 @@ public class Plants {
                     .hunger(1)
                     .saturationModifier(0.3f)
                     .build())
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
             .build();
 
     public static final Crop arrowroot = new Crop(new Identifier(MODID, "arrowroot"))
@@ -42,9 +43,9 @@ public class Plants {
                     .hunger(1)
                     .saturationModifier(0.3f)
                     .build())
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 2, 3, 4, 5, 6, 7, 8} ))
             .build();
-    */
 
     public static final Crop peanut = new Crop(new Identifier(MODID, "peanut"))
             .setFood((new FoodComponent.Builder())
@@ -68,7 +69,6 @@ public class Plants {
             .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
 
-    /*
     public static final Crop corn = new Crop(new Identifier(MODID, "corn"))
             .setFood((new FoodComponent.Builder())
                     .hunger(3)
@@ -76,10 +76,11 @@ public class Plants {
                     .build())
             .setTwoTall(true)
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .setPartialHarvest(true)
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
-    */
 
     public static final Crop tomato = new Crop(new Identifier(MODID, "tomato"))
             .setFood((new FoodComponent.Builder())
@@ -94,31 +95,33 @@ public class Plants {
             .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{1, 4, 6, 10, 12, 14, 18, 20} ))
             .build();
 
-
-
-
     public static final Crop oat = new Crop(new Identifier(MODID, "oat"))
             .setItemGroup(Farmcraft.GROUP)
             .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
             .setSeedGroup(Farmcraft.GROUP)
             .build();
-    /*
+
     public static final Crop jute = new Crop(new Identifier(MODID, "jute"))
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
 
     public static final Crop flax = new Crop(new Identifier(MODID, "flax"))
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
 
     public static final Crop cotton = new Crop(new Identifier(MODID, "cotton"))
-            .setCropGrowthBoundingBoxes(new CropBoundingBoxFactory().buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
+            .setItemGroup(Farmcraft.GROUP)
+            .setCropGrowthBoundingBoxes(CropBoundingBoxFactory.buildBoundingBoxes( new float[]{2, 4, 6, 8, 10, 12, 14, 16} ))
             .setSeperateSeed(true)
+            .setSeedGroup(Farmcraft.GROUP)
             .build();
-    */
 
     public static final Crop rice = new Crop(new Identifier(MODID, "rice"))
             .setItemGroup(Farmcraft.GROUP)
@@ -141,19 +144,76 @@ public class Plants {
             .setSeedGroup(Farmcraft.GROUP)
             .build();
 
-    /*public static final Bush blueberry = new Bush(new Identifier(MODID, "blueberry"))
+    public static final Bush blueberry = new Bush(new Identifier(MODID, "blueberry"))
             .setFood((new FoodComponent.Builder())
                     .hunger(3)
                     .saturationModifier(0.6f)
                     .build())
             .setItemGroup(Farmcraft.GROUP)
-            .build();*/
+            .build();
 
+    public static final Bush blackberry = new Bush(new Identifier(MODID, "blackberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
+
+    public static final Bush cranberry = new Bush(new Identifier(MODID, "cranberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
+
+    public static final Bush elderberry = new Bush(new Identifier(MODID, "elderberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
+
+    public static final Bush huckleberry = new Bush(new Identifier(MODID, "huckleberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
+
+    public static final Bush mulberry = new Bush(new Identifier(MODID, "mulberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
+
+    public static final Bush raspberry = new Bush(new Identifier(MODID, "raspberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
+
+    public static final Bush strawberry = new Bush(new Identifier(MODID, "strawberry"))
+            .setFood((new FoodComponent.Builder())
+                    .hunger(3)
+                    .saturationModifier(0.6f)
+                    .build())
+            .setItemGroup(Farmcraft.GROUP)
+            .build();
 
     public static void register() {
         onion.register();
         peanut.register();
-
+        garlic.register();
+        ginger.register();
+        arrowroot.register();
 
         bell_pepper.register();
         tomato.register();
@@ -162,8 +222,22 @@ public class Plants {
         barley.register();
         oat.register();
         rice.register();
+        jute.register();
+        flax.register();
+        cotton.register();
 
-        //blueberry.register();
+        blueberry.register();
+        blackberry.register();
+        cranberry.register();
+        elderberry.register();
+        huckleberry.register();
+        mulberry.register();
+        raspberry.register();
+        strawberry.register();
+        // Lingonberry because IKEA
+        // Nightshade because poison
+        // Gooseberry because its green
+        // Juniper Berries because gin
     }
 
 
@@ -208,6 +282,13 @@ public class Plants {
     Walnut
     Maple
      */
+
+    // Trees
+    /*
+    * Pine
+    * Sycamore
+    *
+    * */
 
     // Stem Plant
     /*
@@ -269,18 +350,4 @@ public class Plants {
     Shitake Mushrooms
     */
 
-    //Berries
-
-    /*
-    public static final Bush blackberry = new Bush("blackberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush blueberry = new Bush("blueberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush cranberry = new Bush("cranberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush elderberry = new Bush("elderberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush huckleberry = new Bush("huckleberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush mulberry = new Bush("mulberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush raspberry = new Bush("raspberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush strawberry = new Bush("strawberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush candleberry = new Bush("candleberry", (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).build());
-    public static final Bush coffee = new Bush("coffee", null);
-    */
 }

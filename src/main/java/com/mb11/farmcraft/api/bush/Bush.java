@@ -50,6 +50,7 @@ public class Bush {
     }
 
     public void register() {
+        this.block.register();
         Registry.register(Registry.ITEM, this.id, this.item);
         Registry.register(Registry.BLOCK, this.id, this.block);
     }
