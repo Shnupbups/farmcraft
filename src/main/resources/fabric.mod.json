@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "farmcraft",
   "version": "${version}",
 
   "name": "Farmcraft",
-  "description": "Expands the default farming options in minecraft",
+  "description": "Expands the default farming options in Minecraft",
   "authors": [
     "MisterBlock11"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/farmcraft",
+    "sources": "https://github.com/Wtoll/farmcraft"
   },
 
   "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/farmcraft/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -29,8 +29,5 @@
   "depends": {
     "fabricloader": ">=0.4.0",
     "fabric": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
   }
 }
